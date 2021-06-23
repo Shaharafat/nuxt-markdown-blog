@@ -1,90 +1,50 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        markdown-blog
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub {{ text }}
-        </a>
-      </div>
+  <div class="flex flex-col items-center justify-center">
+    <!-- Basic Intro of the author -->
+    <Intro />
+    <!-- Recent Post Section Start -->
+    <div class="w-full sm:w-4/5 md:w-3/5 lg:2/5 px-4 mt-4">
+      <h3 class="text-green-500 text-2xl font-bold">
+        Recent Posts
+      </h3>
+      <!-- List of Recent Posts (MAX: 5) -->
+      <PostsList :articles="recentArticles" />
     </div>
-    <NuxtLink to="/box">
-      Box
-    </NuxtLink>
+    <!-- Recent Post Section End -->
+    <div class="flex justify-center my-8">
+      <NuxtLink to="/posts" class="bg-green-500 hover:bg-green-600 px-12 py-3 text-white shadow-md rounded-md">
+        More Blogs
+      </NuxtLink>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import { Context } from '@nuxt/types'
 
 @Component({
   name: 'Index'
 })
 export default class Index extends Vue {
-  text: string = 'Homepage | Markdown-blog';
-
   public head (): object {
     return {
-      title: this.text
+      title: 'Home | Markdown Blog'
     }
   }
 
+  async asyncData ({ $content }:Context) {
+    const recentArticles = await $content('articles').limit(5).sortBy('createdAt', 'desc').fetch()
+
+    return { recentArticles }
+  }
+
+  // transition
   transition () {
-    return 'slide-left'
+    return 'slide-bottom'
   }
 }
 </script>
 
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+<style scoped>
 </style>

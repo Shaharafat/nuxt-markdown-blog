@@ -14,7 +14,8 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' }
     ]
   },
 
@@ -40,7 +41,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxt/content'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -50,14 +52,4 @@ export default {
   build: {
   }
 
-  // 👍 custom config
-  // loading: {
-  //   color: 'blue',
-  //   height: '10px'
-  // },
-  // loadingIndicator: {
-  //   name: 'circle',
-  //   color: '#3B8070',
-  //   background: 'red'
-  // }
 }
