@@ -5,12 +5,12 @@
         <span>
           <i class="fas fa-quote-left w-12 text-gray-500 text-2xl" />
         </span>
-        <NuxtLink :to="{ name:'posts-slug', params:{slug: article.slug}}" class="font-bold text-3xl text-gray-800 italic hover:underline">
+        <NuxtLink :to="{ name:'posts-slug', params:{slug: article.slug}}" class="font-bold text-xl  md:text-3xl text-gray-800 italic hover:underline">
           {{ article.title }}
         </NuxtLink>
       </div>
       <!-- description of 30 character -->
-      <p class="text-gray-600 text-xl ml-12">
+      <p class="text-gray-600 text-md md:text-xl ml-12">
         {{ sampleDescription(article) }}
       </p>
     </li>
@@ -29,6 +29,7 @@ export default class ArticleList extends Vue {
 
   // This computed method shows the post description
   sampleDescription (article:articleInterface) {
+    console.log(this.articles)
     return article.description.slice(0, 80) + '...'
   }
 }
