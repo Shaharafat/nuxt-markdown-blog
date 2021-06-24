@@ -1,13 +1,10 @@
 <template>
-  <div class="flex justify-center">
+  <div class="mt-8 md:mt-12 lg:mt-20 flex justify-center">
     <div class="w-full sm:w-4/5 md:w-3/5 lg:2/6 px-4 mt-4">
       <div class="flex justify-between items-center">
-        <h3 class="text-green-500 text-2xl font-bold">
+        <h3 class="text-green-500 text-3xl font-bold">
           All Blogs
         </h3>
-        <!-- <NuxtLink to="/">
-          <img src="~/assets/images/home.svg" alt="home icon" class="w-6">
-        </NuxtLink> -->
         <NuxtLink to="/">
           <span class="text-green-400 text-2xl">
             <i class="fas fa-home" />
