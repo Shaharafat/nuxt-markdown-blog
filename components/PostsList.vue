@@ -29,7 +29,6 @@ export default class ArticleList extends Vue {
 
   // This computed method shows the post description
   sampleDescription (article:articleInterface) {
-    console.log(this.articles)
     return article.description.slice(0, 80) + '...'
   }
 }
