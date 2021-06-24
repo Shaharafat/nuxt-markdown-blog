@@ -3,7 +3,7 @@ title: JavsScript Principles You should Know
 description: This is a simple desctip of my postIn this blog, I will discuss some core JavaScript concepts. If you are new to the JavaScript world, then you must have a clear idea about that topic. I will try to explain those very clear and concisely. 
 author:
   name: Shah Arafat
-  image: /_nuxt/assets/images/arafat.jpg
+  image: https://i.postimg.cc/MpPdzJqH/arafat.jpg
   designation: Frontend Developer
 ---
 In this blog, I will discuss some core JavaScript concepts. If you are new to the JavaScript world, then you must have a clear idea about that topic. I will try to explain those very clear and concisely. 

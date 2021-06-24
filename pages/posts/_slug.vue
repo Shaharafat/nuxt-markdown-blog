@@ -23,7 +23,7 @@
       </div>
 
       <!-- Article Body -->
-      <nuxt-content :document="article" class="mt-8 pb-10 prose prose-sm sm:prose lg:prose-lg xl:prose-2xl" />
+      <nuxt-content :document="article" keep-alive class="mt-8 pb-10 prose prose-sm sm:prose lg:prose-lg xl:prose-2xl" />
     </div>
   </div>
 </template>
@@ -44,6 +44,13 @@ export default class Post extends Vue {
   async asyncData ({ $content, params } : Context) {
     const article = await $content('articles', params.slug).fetch()
     return { article }
+  }
+
+  // set head
+  head () {
+    return {
+      title: this.article.title + ' | Markdown Blog'
+    }
   }
 
   // Form the Date Value according to createdAt

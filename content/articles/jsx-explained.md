@@ -3,7 +3,7 @@ title: JSX Explained
 description: JSX is JavaScript Extension Syntax. It is used in react to write markup and JavaScript together easily. Today, in this blog I will try to cover all JSX thing you should know. 
 author:
   name: Shah Arafat
-  image: /_nuxt/assets/images/arafat.jpg
+  image: https://i.postimg.cc/MpPdzJqH/arafat.jpg
   designation: Frontend Developer
 ---
 JSX is JavaScript Extension Syntax. It is used in react to write markup and JavaScript together easily. Today, in this blog I will try to cover all JSX thing you should know. 
