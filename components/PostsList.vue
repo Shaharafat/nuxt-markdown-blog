@@ -11,7 +11,7 @@
       </div>
       <!-- description of 30 character -->
       <p class="text-gray-600 text-xl ml-12">
-        {{ article.description.slice(0,30) }}
+        {{ sampleDescription(article) }}
       </p>
     </li>
   </ul>
@@ -19,12 +19,18 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import { articleInterface } from '~/utils/types'
 
 @Component({
   name: 'ArticleList'
 })
 export default class ArticleList extends Vue {
   @Prop() readonly articles! : object[];
+
+  // This computed method shows the post description
+  sampleDescription (article:articleInterface) {
+    return article.description.slice(0, 80) + '...'
+  }
 }
 </script>
 
